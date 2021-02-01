@@ -5,7 +5,16 @@ using System.Text;
 
 namespace MestreDosCodigos.Escudeiro
 {
-    class Aluno
+    interface Pessoa
+    {
+
+    }
+
+    interface Membro
+    {
+
+    }
+    class Aluno : Pessoa, Membro
     {
         public string Nome { get; set; }
         public List<double> Notas { get; set; } = new List<double>();
@@ -35,7 +44,7 @@ namespace MestreDosCodigos.Escudeiro
             "(7) Teste 7 - Somar os números pares",
             "(8) Teste 8 - Imprimir N número de forma crescente e decrescente",
             "(9) Teste 9 - Demonstração de uso do LINQ",
-            "(0) Sair",
+            "(10)Sair",
         };
         static string[] menu1 = new string[] {
             "(1) Somar valores (A + B)",
@@ -46,14 +55,23 @@ namespace MestreDosCodigos.Escudeiro
             "(6) Novos valores de A e B",
             "(7) Sair"
         };
-        static string[] menu2 = new string[] { };
-        static string[] menu3 = new string[] { };
-        static string[] menu4 = new string[] { };
-        static string[] menu5 = new string[] { };
-        static string[] menu6 = new string[] { };
-        static string[] menu7 = new string[] { };
-        static string[] menu8 = new string[] { };
-        static string[] menu9 = new string[] { };
+        static string[] menu2 = new string[]
+        {
+            "(1) Nova lista de inteiros",
+            "(2) Imprimir todos os números da lista",
+            "(3) Imprimir todos os números da lista na ordem crescente",
+            "(4) Imprimir todos os números da lista na ordem decrescente",
+            "(5) Imprimir o primeiro número da lista",
+            "(6) Imprimir o último número da lista",
+            "(7) Inserir um número no início da lista",
+            "(8) Insirir um número no final da lista",
+            "(9) Remover o primeiro número",
+            "(10) Remover o último número",
+            "(11) Retornar apenas os números pares",
+            "(12) Retornar apenas o número informado",
+            "(13) Transformar todos os números da lista em um Array",
+            "(14) Sair"
+        };
 
         static void Main(string[] args)
         {
@@ -62,7 +80,7 @@ namespace MestreDosCodigos.Escudeiro
             {
                 opcao = Menu(menu0);
                 ProcessarOpcao0(opcao);
-            } while (opcao != 0);
+            } while (opcao != 10);
 
         }
 
@@ -325,8 +343,137 @@ namespace MestreDosCodigos.Escudeiro
                     Console.WriteLine("Aperte qualquer tecla para continuar...");
                     Console.ReadKey();
                     break;
-                case 9: break;
+                case 9:
+                    int op2;
+                    List<int> lista;
+                    EntradaList(out lista);
+                    do
+                    {
+                        op2 = Menu(menu2);
+                        ProcessarOpcao2(op2, lista);
+
+                    } while (op2 != 14);
+                    break;
             }
+        }
+
+        private static void ProcessarOpcao2(int op2, List<int> lista)
+        {
+            switch (op2)
+            {
+                case 1:
+                    EntradaList(out lista);
+                    break;
+                case 2:
+                    ImprimirLista(lista);
+                    break;
+                case 3:
+                    ImprimirLista(lista.OrderBy(l => l).ToList());
+                    break;
+                case 4:
+                    ImprimirLista(lista.OrderByDescending(l => l).ToList());
+                    break;
+                case 5:
+                    Console.WriteLine(lista.First());
+                    break;
+                case 6:
+                    Console.WriteLine(lista.Last());
+                    break;
+                case 7:
+                    Console.WriteLine("Digite um número inteiro:");
+                    var entrada = Console.ReadLine();
+                    int numero;
+                    while (!int.TryParse(entrada, out numero))
+                    {
+                        Console.WriteLine("Entrada inválida!");
+                        Console.WriteLine("");
+                        Console.WriteLine("Digite um número qualquer:");
+                        entrada = Console.ReadLine();
+                    }
+                    lista.Insert(0, numero);
+                    break;
+                case 8:
+                    Console.WriteLine("Digite um número inteiro:");
+                    entrada = Console.ReadLine();
+                    while (!int.TryParse(entrada, out numero))
+                    {
+                        Console.WriteLine("Entrada inválida!");
+                        Console.WriteLine("");
+                        Console.WriteLine("Digite um número qualquer:");
+                        entrada = Console.ReadLine();
+                    }
+                    lista.Add(numero);
+                    break;
+                case 9:
+                    if (lista.Count > 0)
+                        lista.RemoveAt(0);
+                    else
+                        Console.WriteLine("Lista vazia!");
+                    break;
+                case 10:
+                    if (lista.Count > 0)
+                        lista.RemoveAt(lista.Count - 1);
+                    else
+                        Console.WriteLine("Lista vazia!");
+                    break;
+                case 11:
+                    ImprimirLista(lista.Where(l => l % 2 == 0).ToList());
+                    break;
+                case 12:
+                    Console.WriteLine("Digite um número inteiro:");
+                    entrada = Console.ReadLine();
+                    while (!int.TryParse(entrada, out numero))
+                    {
+                        Console.WriteLine("Entrada inválida!");
+                        Console.WriteLine("");
+                        Console.WriteLine("Digite um número qualquer:");
+                        entrada = Console.ReadLine();
+                    }
+                    var i = lista.IndexOf(numero);
+                    if (i < 0)
+                        Console.WriteLine("Número não encontrado");
+                    else
+                        Console.WriteLine("Número {0} encontrado na posição {1}", numero, i);
+                    break;
+                case 13:
+                    Console.WriteLine("Tipo da lista convertida: {0}", lista.ToArray().GetType());
+                    break;
+            }
+            if (op2 != 14)
+            {
+                Console.WriteLine("Aperte qualquer tecla para continuar...");
+                Console.ReadKey();
+            }
+        }
+
+        private static void ImprimirLista(List<int> lista)
+        {
+            Console.WriteLine(string.Join(", ", lista));
+        }
+
+        private static void EntradaList(out List<int> lista)
+        {
+            string entrada;
+            Console.Clear();
+            lista = new List<int>();
+            do
+            {
+                Console.WriteLine("Digite um número inteiro (x para encenrrar a entrada):");
+                entrada = Console.ReadLine();
+                int numero;
+                while (!int.TryParse(entrada, out numero) && entrada != "x")
+                {
+                    Console.WriteLine("Entrada inválida!");
+                    Console.WriteLine("");
+                    Console.WriteLine("Digite um número qualquer (x para encenrrar a entrada):");
+                    entrada = Console.ReadLine();
+                }
+                if (entrada != "x")
+                {
+                    lista.Add(numero);
+                    Console.Clear();
+                }
+            } while (entrada != "x");
         }
 
         /*
@@ -407,6 +554,7 @@ namespace MestreDosCodigos.Escudeiro
         private static int Menu(string[] ops)
         {
             int numOp = ops.Length;
+            index = 0;
             ConsoleKeyInfo tecla;
             do
             {
