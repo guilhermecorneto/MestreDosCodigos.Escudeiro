@@ -31,7 +31,7 @@ namespace MestreDosCodigos.Escudeiro
             return ((double)Notas.Sum()) / Notas.Count;
         }
     }
-    class Program
+    public class Program
     {
         static int index = 1;
         static string[] menu0 = new string[] {
@@ -446,9 +446,11 @@ namespace MestreDosCodigos.Escudeiro
             }
         }
 
-        private static void ImprimirLista(List<int> lista)
+        public static string ImprimirLista(List<int> lista)
         {
-            Console.WriteLine(string.Join(", ", lista));
+            var listaStr = string.Join(", ", lista);
+            Console.WriteLine(listaStr);
+            return listaStr;
         }
 
         private static void EntradaList(out List<int> lista)
@@ -510,7 +512,7 @@ namespace MestreDosCodigos.Escudeiro
             }
         }
 
-        private static string ParOuImpar(double valor)
+        public static string ParOuImpar(double valor)
         {
             return valor % 2 == 0 ? "PAR" : "ÍMPAR";
         }

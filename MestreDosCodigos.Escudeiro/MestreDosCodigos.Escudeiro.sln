@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MestreDosCodigos.Escudeiro"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MestreDosCodigos.Escudeiro.POO", "MestreDosCodigos.Escudeiro.POO\MestreDosCodigos.Escudeiro.POO.csproj", "{2FFA9430-208A-4F49-8CD0-166A7CA797D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MestreDosCodigos.Escudeiro.XUnit.Tests", "MestreDosCodigos.Escudeiro.XUnit.Tests\MestreDosCodigos.Escudeiro.XUnit.Tests.csproj", "{C72FBC6B-0CFF-4B42-BC03-BB6EA653485B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MestreDosCodigos.Escudeiro.MSTest.Tests", "MestreDosCodigos.Escudeiro.MSTest.Tests\MestreDosCodigos.Escudeiro.MSTest.Tests.csproj", "{0163030B-CE49-4D20-B877-CF644E8014D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{2FFA9430-208A-4F49-8CD0-166A7CA797D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FFA9430-208A-4F49-8CD0-166A7CA797D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FFA9430-208A-4F49-8CD0-166A7CA797D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C72FBC6B-0CFF-4B42-BC03-BB6EA653485B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C72FBC6B-0CFF-4B42-BC03-BB6EA653485B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C72FBC6B-0CFF-4B42-BC03-BB6EA653485B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C72FBC6B-0CFF-4B42-BC03-BB6EA653485B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0163030B-CE49-4D20-B877-CF644E8014D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0163030B-CE49-4D20-B877-CF644E8014D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0163030B-CE49-4D20-B877-CF644E8014D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0163030B-CE49-4D20-B877-CF644E8014D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
