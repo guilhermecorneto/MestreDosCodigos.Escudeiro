@@ -15,7 +15,7 @@ namespace MestreDosCodigos.Escudeiro.POO
             NumeroConta = numeroConta;
         }
 
-        public bool Depositar(double deposito)
+        public virtual bool Depositar(double deposito)
         {
             if (deposito < 0)
             {
@@ -29,7 +29,7 @@ namespace MestreDosCodigos.Escudeiro.POO
             }
         }
 
-        public bool Sacar(double saque)
+        public virtual bool Sacar(double saque)
         {
             if (saque < 0)
             {

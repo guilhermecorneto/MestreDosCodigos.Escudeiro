@@ -250,6 +250,12 @@ namespace MestreDosCodigos.Escudeiro
                         entrada = Console.ReadLine();
                     }
                     var delta = Math.Pow(bB, 2) - 4 * bA * bC;
+                    if (delta < 0)
+                    {
+                        Console.WriteLine("Valor de Delta inválido (" + delta + ")! Aperte qualquer tecla para continuar...)");
+                        Console.ReadKey();
+                        break;
+                    }
                     var r1 = (-bB + Math.Sqrt(delta)) / (2 * bA);
                     var r2 = (-bB - Math.Sqrt(delta)) / (2 * bA);
                     Console.Clear();

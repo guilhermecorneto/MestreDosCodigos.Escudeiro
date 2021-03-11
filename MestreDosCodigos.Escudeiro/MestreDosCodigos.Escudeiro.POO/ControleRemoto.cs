@@ -13,14 +13,31 @@ namespace MestreDosCodigos.Escudeiro.POO
             Televisao = televisao;
         }
 
-        public void AumentarVolume()
+        public string AumentarVolume()
         {
-            Televisao.AumentarVolume();
+            return "Volume: " + Televisao.AumentarVolume();
         }
 
-        public void DiminuirVolume()
+        public string DiminuirVolume()
         {
-            Televisao.DiminuirVolume();
+            return "Volume: " + Televisao.DiminuirVolume();
+        }
+
+        public string DiminuirCanal()
+        {
+            return "Canal: " + Televisao.DiminuirCanal();
+        }
+
+        public string AumentarCanal()
+        {
+            return "Canal: " + Televisao.AumentarCanal();
+        }
+
+        public string ConferirVolumeECanal()
+        {
+            return
+                "Volume atual: " + Televisao.Volume + "\n" +
+                "Canal atual: " + Televisao.Canal;
         }
     }
 }

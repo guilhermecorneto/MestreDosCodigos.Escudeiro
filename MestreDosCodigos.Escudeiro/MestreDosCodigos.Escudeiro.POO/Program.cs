@@ -72,28 +72,43 @@ namespace MestreDosCodigos.Escudeiro.POO
             ConsoleKey key;
             Console.WriteLine("Aperte + (NumPad) ou \"Seta para cima\" para aumentar o volume.");
             Console.WriteLine("Aperte - (NumPad ou \"Seta para baixo\" para diminuir o volume.");
+            Console.WriteLine("Aperte \"Seta para direita\" para aumentar o canal.");
+            Console.WriteLine("Aperte \"Seta para esquerda\" para diminuir o canal.");
+            Console.WriteLine("Aperte a letra \"I\" para conferir o volume e canal atuais.");
             Console.WriteLine("Aperte ESC para finalizar o programa.");
             do
             {
                 var read = Console.ReadKey(true);
                 key = read.Key;
-                switch(key)
+                var retorno = "";
+                switch (key)
                 {
                     case ConsoleKey.Add:
-                        controleRemoto.AumentarVolume();
+                        retorno = controleRemoto.AumentarVolume();
                         break;
                     case ConsoleKey.UpArrow:
-                        controleRemoto.AumentarVolume();
+                        retorno = controleRemoto.AumentarVolume();
                         break;
                     case ConsoleKey.Subtract:
-                        controleRemoto.DiminuirVolume();
+                        retorno = controleRemoto.DiminuirVolume();
                         break;
                     case ConsoleKey.DownArrow:
-                        controleRemoto.DiminuirVolume();
+                        retorno = controleRemoto.DiminuirVolume();
+                        break;
+                    case ConsoleKey.RightArrow:
+                        retorno = controleRemoto.AumentarCanal();
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        retorno = controleRemoto.DiminuirCanal();
+                        break;
+                    case ConsoleKey.I:
+                        retorno = controleRemoto.ConferirVolumeECanal();
                         break;
                 }
+                Console.WriteLine(retorno);
             } while (key != ConsoleKey.Escape);
             Console.WriteLine("Volume da televisão ao fim do Prorama: {0}", televisao.Volume);
+            Console.WriteLine("Canal da televisão ao fim do Prorama: {0}", televisao.Canal);
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("Aperte qualquer tecla para continuar...");

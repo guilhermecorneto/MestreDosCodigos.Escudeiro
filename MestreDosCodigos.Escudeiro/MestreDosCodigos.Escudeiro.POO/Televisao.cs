@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MestreDosCodigos.Escudeiro.POO
+﻿namespace MestreDosCodigos.Escudeiro.POO
 {
     public class Televisao
     {
         public int Volume { get; set; }
+        public int Canal { get; set; }
         public ControleRemoto ControleRemoto { get; private set; }
 
         public Televisao(ControleRemoto controleRemoto)
@@ -15,18 +12,32 @@ namespace MestreDosCodigos.Escudeiro.POO
             ControleRemoto.ConfigurarTelevisao(this);
         }
 
-        public void AumentarVolume()
+        public int AumentarVolume()
         {
             if (Volume < 99)
                 Volume++;
-            Console.WriteLine(Volume);
+            return Volume;
         }
 
-        public void DiminuirVolume()
+        public int DiminuirVolume()
         {
             if (Volume > 0)
                 Volume--;
-            Console.WriteLine(Volume);
+            return Volume;
+        }
+
+        public int AumentarCanal()
+        {
+            if (Canal < 99)
+                Canal++;
+            return Canal;
+        }
+
+        public int DiminuirCanal()
+        {
+            if (Canal > 0)
+                Canal--;
+            return Canal;
         }
     }
 }
