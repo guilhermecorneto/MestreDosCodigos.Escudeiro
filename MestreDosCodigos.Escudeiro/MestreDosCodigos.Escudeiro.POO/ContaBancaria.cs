@@ -29,23 +29,6 @@ namespace MestreDosCodigos.Escudeiro.POO
             }
         }
 
-        public virtual bool Sacar(double saque)
-        {
-            if (saque < 0)
-            {
-                Console.WriteLine("Não é possível fazer um saque negativo!");
-                return false;
-            }
-            else if (Saldo < saque)
-            {
-                Console.WriteLine("Saldo insuficiente!");
-                return false;
-            }
-            else
-            {
-                Saldo -= saque;
-                return true;
-            }
-        }
+        public abstract bool Sacar(double saque);
     }
 }

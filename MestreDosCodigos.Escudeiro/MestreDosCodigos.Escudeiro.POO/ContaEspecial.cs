@@ -11,7 +11,7 @@ namespace MestreDosCodigos.Escudeiro.POO
             Limite = limite;
         }
 
-        public new bool Sacar(double saque)
+        public override bool Sacar(double saque)
         {
             if (saque < 0)
             {

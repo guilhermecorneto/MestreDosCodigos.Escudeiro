@@ -15,7 +15,7 @@ namespace MestreDosCodigos.Escudeiro.POO
             TaxaOperacao = taxaOperacao;
         }
 
-        public new bool Depositar(double deposito)
+        public override bool Depositar(double deposito)
         {
             if (base.Depositar(deposito))
             {
@@ -25,7 +25,7 @@ namespace MestreDosCodigos.Escudeiro.POO
             return false;
         }
 
-        public new bool Sacar(double saque)
+        public override bool Sacar(double saque)
         {
             if (saque < 0)
             {
