@@ -1,4 +1,6 @@
-﻿namespace MestreDosCodigos.Escudeiro.POO
+﻿using System;
+
+namespace MestreDosCodigos.Escudeiro.POO
 {
     public class Televisao
     {
@@ -35,9 +37,15 @@
 
         public int DiminuirCanal()
         {
-            if (Canal > 0)
+            if (Canal > 1)
                 Canal--;
             return Canal;
+        }
+
+        public int IrParaCanal(int canal)
+        {
+            Canal = canal;
+            return canal;
         }
     }
 }

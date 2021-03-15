@@ -74,6 +74,7 @@ namespace MestreDosCodigos.Escudeiro.POO
             Console.WriteLine("Aperte - (NumPad ou \"Seta para baixo\" para diminuir o volume.");
             Console.WriteLine("Aperte \"Seta para direita\" para aumentar o canal.");
             Console.WriteLine("Aperte \"Seta para esquerda\" para diminuir o canal.");
+            Console.WriteLine("Aperte a letra \"C\" para ir para um canal informado.");
             Console.WriteLine("Aperte a letra \"I\" para conferir o volume e canal atuais.");
             Console.WriteLine("Aperte ESC para finalizar o programa.");
             do
@@ -103,6 +104,10 @@ namespace MestreDosCodigos.Escudeiro.POO
                         break;
                     case ConsoleKey.I:
                         retorno = controleRemoto.ConferirVolumeECanal();
+                        break;
+                    case ConsoleKey.C:
+                        var canal = controleRemoto.LerCanal();
+                        retorno = controleRemoto.IrParaCanal(canal);
                         break;
                 }
                 Console.WriteLine(retorno);

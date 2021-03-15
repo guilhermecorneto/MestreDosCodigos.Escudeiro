@@ -39,5 +39,28 @@ namespace MestreDosCodigos.Escudeiro.POO
                 "Volume atual: " + Televisao.Volume + "\n" +
                 "Canal atual: " + Televisao.Canal;
         }
+
+        public int LerCanal()
+        {
+            var canalValido = false;
+            do
+            {
+                Console.Write("Digite um canal entre 1 e 99: ");
+                var leitura = Console.ReadLine();
+                if (int.TryParse(leitura, out var canal))
+                {
+                    if (canal > 0 && canal < 100)
+                        return canal;
+                }
+                Console.WriteLine("Canal inválido!");
+                Console.WriteLine("");
+            } while (!canalValido);
+            return 1;
+        }
+
+        public string IrParaCanal(int canal)
+        {
+            return "Canal: " + Televisao.IrParaCanal(canal);
+        }
     }
 }
